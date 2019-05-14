@@ -3,57 +3,490 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin        : 0;
+	padding       : 0;
+	border        : 0;
+	font-size     : 100%;
+	font          : inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
-	border-spacing: 0;
+	border-spacing : 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+	height: 100%;
 }
 
+h1 {
+	font-size: 1rem;
+}
+
+//Boxing Colors
+@tundora        : #444444;
+@boulder        : #777777;
+@silver-chalice : #AAAAAA;
+@tundora-trans  : rgba(44, 44, 44, .5);
+@boulder-trans  : rgba(120, 120, 120, .8);
+@black-trans    : rgba(0, 0, 0, .5);
+@drkblack-trans : rgba(0, 0, 0, .8);
+
+//Text Colors/Accents
+@alto: #DEDEDE;
+
+@main-page-background: @black-trans;
+
+.round(@round-amt) {
+	border-radius: @round-amt;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+ul,
+ol,
+li,
+a {
+	color          : @alto;
+	text-decoration: none;
+}
+
+html {
+	background-image: url('../img/bridge.jpg');
+	box-shadow      : inset 0 0 100% 100% rgba(0, 0, 0, .2);
+	background-size : cover;
+	image-resolution: 300dpi;
+
+	@media(max-width:500px) {
+		background-repeat    : no-repeat;
+		background-attachment: fixed;
+
+	}
+}
+
+.nav-bar {
+	position  : fixed;
+	left      : 0;
+	top       : 0;
+	width     : 100%;
+	padding   : 2rem;
+	box-sizing: border-box;
+	font-size : 1.4rem;
+	background: @drkblack-trans;
+	text-align: end;
+
+	.nav-item {
+		padding   : 2rem;
+		text-align: center;
+
+	}
+
+	.nav-item:hover {
+		background: @tundora;
+	}
+
+	@media (max-width:500px) {
+		width   : 100%;
+		position: static;
+
+		.nav-item {
+			display      : block;
+			padding      : 1rem;
+			width        : 100%;
+			border-bottom: 1px solid @alto;
+		}
+
+		.nav-item:last-child {
+			border: none;
+		}
+
+		.nav-item:hover {
+			background: @tundora;
+		}
+	}
+}
+
+.main-container {
+	display: flex;
+	margin:5rem auto 1rem;
+	.main-left {
+		height          : 75%;
+		padding         : 0rem 2rem;
+		border          : 1px solid white;
+		justify-content : center;
+		margin          : 1rem .5rem;
+		background-color: @black-trans;
+
+		.profile-pic {
+			width       : 20rem;
+			height      : 20rem;
+			border-left : 2px solid white;
+			border-right: 2px solid white;
+			margin      : 2rem;
+			margin-left : 3rem;
+			box-shadow  : 1rem 1rem .5rem rgba(44, 44, 44, .5);
+			.round(5rem);
+		}
+
+		.name {
+			background: @tundora-trans;
+			border    : 1px solid @alto;
+			padding   : 1rem;
+			width     : 10rem;
+			font-size : 1.4rem;
+			margin    : 1rem auto;
+			z-index   : 1;
+			.round(10rem);
+		}
+
+		.intro {
+			position  : relative;
+			bottom    : 7rem;
+			padding   : 1rem;
+			text-align: center;
+			height    : 20rem;
+
+			h2 {
+				font-size: 1.8rem;
+			}
+
+			p {
+				width    : 20rem;
+				margin   : 0 auto;
+				font-size: 1.2rem;
+
+			}
+
+			button {
+				width           : 100%;
+				height          : 2rem;
+				background-color: @tundora;
+				border          : none;
+				font-size       : 1.1rem;
+				margin          : 1rem auto;
+				color           : @alto;
+			}
+
+			button:hover {
+				background: @boulder;
+				color     : black;
+				border    : 1px solid @alto;
+				cursor    : pointer;
+			}
+
+		}
+
+
+
+	}
+
+	.left-bottom {
+		height    : 23.1%;
+		padding   : 1rem;
+		background: @black-trans;
+		border    : 1px solid white;
+		margin    : 0 .5rem;
+
+		h2 {
+			font-size    : 1.6rem;
+			border-bottom: 1px solid @alto;
+			text-align   : center;
+			padding      : 1rem;
+		}
+
+		ul {
+			list-style-type: circle;
+			font-size      : 1.1rem;
+			padding        : 1rem 2rem;
+			line-height    : 1.5;
+		}
+	}
+
+	.main-right {
+		border : 1px solid white;
+		height : 100%;
+		padding: 1rem;
+		margin : 1rem .5rem;
+
+		background-color: @black-trans;
+
+		h1 {
+			font-size    : 1.6rem;
+			width        : 100%;
+			height       : 2rem;
+			text-align   : center;
+			border-bottom: 1px solid @alto;
+		}
+
+		.wh-item {
+			padding   : 1rem;
+			margin    : 1rem auto;
+			border    : 1px solid @alto;
+			height    : 30%;
+			background: @boulder-trans;
+
+			.title {
+				display        : flex;
+				justify-content: space-between;
+				margin-bottom  : 1rem;
+
+				.name {
+					padding      : 1rem;
+					font-size    : 1.8rem;
+					border-bottom: 1px solid @alto;
+				}
+
+				.date {
+					padding: 1rem;
+
+					border: 1px solid @alto;
+				}
+			}
+
+			.descrip {
+				font-size: 1.4rem;
+			}
+
+		}
+
+	}
+
+	@media(max-width:500px) {
+		display: block;
+		margin : 1rem auto;
+
+		.main-left {
+			padding: 1rem 0rem;
+
+			.profile-pic {
+				width : 15rem;
+				height: 15rem;
+				margin: 0 3rem;
+			}
+
+
+			.intro {
+				margin-left: 1rem;
+
+				.name {
+					margin: 2rem 3.45rem 0rem;
+
+				}
+
+				.h2 {
+					padding      : 1rem;
+					margin       : 0rem 1rem;
+					border-bottom: 1px solid @alto;
+					text-align   : center;
+				}
+
+
+				p {
+					width  : 18rem;
+					padding: 1rem;
+					margin : 0 auto;
+
+				}
+
+				button {
+					width : 100%;
+					margin: 0 1rem;
+				}
+
+				width :90%;
+				height:30rem;
+			}
+		}
+
+	}
+
+
+}
+
+
+
+.foot {
+	padding         : 1rem;
+	margin          : 2rem 1rem;
+	border          : 1px solid white;
+	background-color: @black-trans;
+	text-align      : center;
+
+	h2 {
+		span {
+			font-size: 1.4rem;
+		}
+
+		font-size     : 1.1rem;
+		border-bottom : 1px solid @alto;
+		padding-bottom:1rem;
+
+	}
+
+	.contact {
+		padding        : 1rem;
+		display        : flex;
+		flex-direction : row;
+		justify-content: space-evenly;
+		border-left    : 1px solid @alto;
+		border-right   : 1px solid @alto;
+
+	}
+
+	p {
+		padding       : 1rem;
+		margin        : 1rem 1rem;
+		display       : flex;
+		flex-direction: column;
+		font-size     : 1.3rem;
+	}
+
+	.p-edit {
+		text-decoration: underline;
+		font-size      : 1rem;
+	}
+	@media(max-width:500px){
+		.contact{
+			flex-direction: column;
+		}
+	}
+}
+
+.copy {
+	padding        : 1rem 0rem;
+	margin         : 1rem 0rem;
+	font-size      : 1rem;
+	color          : black;
+	text-decoration: underline;
+	text-align     : center;
+}
