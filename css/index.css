@@ -151,6 +151,45 @@ a {
   color: #DEDEDE;
   text-decoration: none;
 }
+.nav-bar {
+  padding: 2rem;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  background: rgba(172, 174, 169, 0.5);
+  text-align: end;
+}
+.nav-bar .nav-item {
+  padding: 2rem;
+  text-align: center;
+}
+.nav-bar .nav-item:hover {
+  background: #444444;
+}
+.nav-bar a:active {
+  background-color: green;
+}
+@media (max-width: 500px) {
+  .nav-bar {
+    width: 6rem;
+    display: block;
+    font-size: 1.4rem;
+  }
+  .nav-bar .nav-item {
+    width: 100%;
+  }
+}
+.main-container {
+  display: flex;
+}
+.main-container .profile-pic {
+  width: 10rem;
+  height: 10rem;
+}
+@media (max-width: 500px) {
+  .main-container {
+    display: block;
+  }
+}
 html {
   background: #444444;
 }
