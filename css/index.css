@@ -157,7 +157,7 @@ html {
   background-size: cover;
   image-resolution: 300dpi;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 @media (max-width: 500px) {
   html {
