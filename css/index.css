@@ -159,8 +159,8 @@ html {
 }
 @media (max-width: 500px) {
   html {
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
   }
 }
