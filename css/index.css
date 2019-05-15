@@ -160,7 +160,7 @@ html {
 @media (max-width: 500px) {
   html {
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 }
 .nav-bar {
